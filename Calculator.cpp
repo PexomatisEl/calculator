@@ -8,57 +8,57 @@
 
 int main()
 {
-    std::string str, temp;
-    std::vector<std::string> opmain;
+    std::string inputStr, temp;
+    std::vector<std::string> operationVec;
 
-    //std::cout << "Type in an arithmetic expression to be calculated: \n";
-    //std::getline(std::cin, str);
-    //std::cout << str;
+    std::cout << "Type in an arithmetic expression to be calculated: \n";
+    std::getline(std::cin, inputStr);
+    std::cout << inputStr;
 
-    str = "sin(pi)+e^ln(-5)";
+    
     
     int i = 0;
     
-    if ( str[0] == '-'  &&  !(str[1] == '(' ) ) 
+    if ( inputStr[0] == '-'  &&  !(inputStr[1] == '(' ) ) 
     {
-        temp.push_back(str[0]); 
+        temp.push_back(inputStr[0]); 
         i++; 
     }
-    int counterr = 0;
+    int counterRightPar = 0;
     bool check = false;
     
-    if (str[0] == '-' && str[1] == '(') 
+    if (inputStr[0] == '-' && inputStr[1] == '(') 
     {
         check = true;
-        str.erase(str.begin());
-        int counterl = 1, n = str.size();
+        inputStr.erase(inputStr.begin());
+        int counterLeftPar = 1, n = inputStr.size();
         
         for (int j = 1; j < n; j++) 
         {
-            if (str[j] == '(') 
+            if (inputStr[j] == '(') 
             {
-                counterl++; 
+                counterLeftPar++; 
             }
-            else if (str[j] == ')') 
+            else if (inputStr[j] == ')') 
             { 
-                counterr++;
+                counterRightPar++;
             }
             
-            if (counterl == counterr) 
+            if (counterLeftPar == counterRightPar) 
             {
                 break; 
             }
         }
     }
 
-    while (i < str.size()) 
+    while (i < inputStr.size()) 
     {
         
-        while ( isalpha( str[i] ) ) 
+        while ( isalpha( inputStr[i] ) ) 
         {
-            temp.push_back(str[i]);
+            temp.push_back(inputStr[i]);
             i++;
-            if (i >= str.size()) 
+            if (i >= inputStr.size()) 
             {
                 break; 
             }
@@ -67,21 +67,21 @@ int main()
         
         if ( temp.size() ) 
         {
-            opmain.push_back(temp); 
+            operationVec.push_back(temp); 
         }
         
-        if (i >= str.size()) 
+        if (i >= inputStr.size()) 
         {
             break; 
         }
         
         temp.clear();
         
-        while ( isdigit( str[i] ) || str[i] == '.' ) 
+        while ( isdigit( inputStr[i] ) || inputStr[i] == '.' ) 
         {
-            temp.push_back( str[i] );
+            temp.push_back( inputStr[i] );
             i++;
-            if ( i >= str.size() ) 
+            if ( i >= inputStr.size() ) 
             {
                 break; 
             }
@@ -89,117 +89,118 @@ int main()
         
         if ( temp.size() ) 
         {
-            opmain.push_back(temp); 
+            operationVec.push_back(temp); 
         }
         
-        if ( i >= str.size() ) 
+        if ( i >= inputStr.size() ) 
         {
             break; 
         }
         
         temp.clear();
-        temp = str[i];
-        opmain.push_back(temp);
+        temp = inputStr[i];
+        operationVec.push_back(temp);
         temp.clear();
         i++;
     }
     
-    for (int i = 0; i < opmain.size(); i++) 
+    for (int i = 0; i < operationVec.size(); i++) 
     {
-        if (opmain[i] == "pi") { opmain[i] = "3.14159265358979323846"; }
-        if (opmain[i] == "e") { opmain[i] = "2.71828182845904523536"; }
+        if (operationVec[i] == "pi") 
+        {
+            operationVec[i] = "3.14159265358979323846"; 
+        }
+        
+        if (operationVec[i] == "e") 
+        {
+            operationVec[i] = "2.71828182845904523536"; 
+        }
     }
 
-    for (int i = 0; i < opmain.size(); i++) 
+    for (int i = 0; i < operationVec.size(); i++) 
     {
-        std::cout << opmain[i] << std::endl;
+        std::cout << operationVec[i] << std::endl;
     }
     
     // Parenthesis
-    int c1 = count( opmain.begin(), opmain.end(), "("),
-        c2 = count(opmain.begin(), opmain.end(), ")");
-    
-    if (c1 != c2) 
-    {
-        std::cout << "The multitudes of ( and ) don't match."; 
-        return 0; 
-    }
-    
-    for (int i = 0; i < c2; i++) 
+    int counterLeftPar = count( operationVec.begin(), operationVec.end(), "(" ),
+        counterRightPar = count( operationVec.begin(), operationVec.end(), ")" );
+        
+    for (int i = 0; i < counterRightPar; i++) 
     {
         
-        auto indexr = find(opmain.begin(), opmain.end(), ")");
-        int pos1(0), pos2 = distance(opmain.begin(), indexr);
+        auto iteratorFirstRightPar = find(operationVec.begin(), operationVec.end(), ")");
+        int indexLeftPar(0), indexRightPar = distance(operationVec.begin(), iteratorFirstRightPar);
         
-        for (int j = pos2; j >= 0; j--) 
+        for (int j = indexRightPar; j >= 0; j--) 
         {
             
-            if (opmain[j] == "(") 
+            if (operationVec[j] == "(") 
             {
-                pos1 = j; 
+                indexLeftPar = j; 
                 break; 
             }
             
         }
         
-        std::vector<std::string> par;
+        std::vector<std::string> containsParenthesis;
         
-        for (int j = pos1 + 1; j < pos2; j++) 
+        for (int j = indexLeftPar + 1; j < indexRightPar; j++) 
         {
             
-            if ( opmain[pos1 + 1] == "-" && j == pos1 + 1) 
+            if ( operationVec[indexLeftPar + 1] == "-" && j == indexLeftPar + 1) 
             {
-                double y = stod(opmain[pos1 + 2]) * (-1);
-                std::string z = std::to_string(y);
-                par.push_back(z);
+                double doubleResult= stod( operationVec[indexLeftPar + 2] ) * (-1);
+                std::string strResult= std::to_string(doubleResult);
+                containsParenthesis.push_back(strResult);
                 j += 2;
             }
             
-            par.push_back( opmain[j] );
+            containsParenthesis.push_back( operationVec[j] );
         }
         
-        praxis( par );
+        praxis( containsParenthesis );
         
-        if (check && i + 1 == counterr) 
+        if (check && i + 1 == counterRightPar) 
         {
-            double k = stod(par[0]) * (-1);
+            double k = stod(containsParenthesis[0]) * (-1);
             std::string p = std::to_string(k);
-            par.clear();
-            par.push_back(p);
+            containsParenthesis.clear();
+            containsParenthesis.push_back(p);
             check = false;
         }
         
-        auto indexl = opmain.begin() + pos1;
-        opmain.emplace(indexl, par[0]);
-        indexl = opmain.begin() + pos1 + 1;
-        indexr = opmain.begin() + pos2 + 1;
-        opmain.erase(indexl, indexr + 1);
+        auto iteratorFirstLeftPar = operationVec.begin() + indexLeftPar;
+        operationVec.emplace(iteratorFirstLeftPar, containsParenthesis[0]);
+        iteratorFirstLeftPar = operationVec.begin() + indexLeftPar + 1;
+        iteratorFirstRightPar = operationVec.begin() + indexRightPar + 1;
+        operationVec.erase(iteratorFirstLeftPar, iteratorFirstRightPar + 1);
         
-        if (std::all_of(opmain[pos1 - 1].begin(), opmain[pos1 - 1].end(), [](char c) {return isalpha(c); }) && pos1 != 0) 
+        if (std::all_of(operationVec[indexLeftPar - 1].begin(), operationVec[indexLeftPar - 1].end(), [](char c) {return isalpha(c); }) && indexLeftPar != 0) 
         {
-            double x = stod( opmain[pos1] );
+            double x = stod( operationVec[indexLeftPar] );
             
-            if (opmain[pos1 - 1] == "sin")
+            if (operationVec[indexLeftPar - 1] == "sin")
             {
                 x = sin(x); 
             }
             
-            if (opmain[pos1 - 1] == "cos") 
+            if (operationVec[indexLeftPar - 1] == "cos") 
             {
                 x = cos(x); 
             }
             
-            if (opmain[pos1 - 1] == "tan") 
+            if (operationVec[indexLeftPar - 1] == "tan") 
             {
                 x = tan(x); 
             }
             
-            if (opmain[pos1 - 1] == "cot") 
+            if (operationVec[indexLeftPar - 1] == "cot") 
             {
                 x = 1/tan(x); 
             }
             
-            if (opmain[pos1 - 1] == "ln") 
+            if (operationVec[indexLeftPar - 1] == "ln") 
             {
                 if (x <= 0) 
                 { 
@@ -212,9 +213,12 @@ int main()
                 } 
             }
             
-            if (opmain[pos1 - 1] == "log") 
+            if (operationVec[indexLeftPar - 1] == "log") 
             {
-                if (x <= 0) { std::cout << "Negative number in logarithm!"; return 0; 
+                if (x <= 0) 
+                {
+                    std::cout << "Negative number in logarithm!"; 
+                             return 0; 
                             }
                 else 
                 {
@@ -222,7 +226,7 @@ int main()
                 } 
             }
             
-            if (opmain[pos1 - 1] == "sqrt") 
+            if (operationVec[indexLeftPar - 1] == "sqrt") 
             {
                 if (x < 0) 
                 {
@@ -235,18 +239,18 @@ int main()
                 } 
             }
             
-            std::string z = std::to_string(x);
-            auto indexl = opmain.begin() + pos1 - 1;
-            opmain.emplace(indexl, z);
-            indexl = opmain.begin() + pos1;
-            opmain.erase(indexl, indexl + 2);
+            std::string strResult= std::to_string(x);
+            auto iteratorFirstLeftPar = operationVec.begin() + indexLeftPar - 1;
+            operationVec.emplace(iteratorFirstLeftPar, strResult);
+            iteratorFirstLeftPar = operationVec.begin() + indexLeftPar;
+            operationVec.erase(iteratorFirstLeftPar, iteratorFirstLeftPar + 2);
         }
     }
 
     // Final praxis
-    praxis( opmain );
+    praxis( operationVec );
 
-    std::cout << opmain[0];
+    std::cout << operationVec[0];
     
 
     return 0;
