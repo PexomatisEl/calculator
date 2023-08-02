@@ -6,7 +6,7 @@ void praxis(std::vector<std::string> &string1) // str1
     int countPower = count(string1.begin(), string1.end(), "^"); // countp
     // std::string powr = "^";
     
-    for (int i = 0; i < countp; i++)
+    for (int i = 0; i < countPower; i++)
     {
         auto iteratorFirstPower = std::find(string1.begin(), string1.end(), "^"); // indexp
         int indexFirstPower = std::distance(string1.begin(), iteratorFirstPower); // k
@@ -25,7 +25,7 @@ void praxis(std::vector<std::string> &string1) // str1
     
     for (int i = 0; i < countMultDiv; i++)
     {
-        std::vector<std::string>::iterator iteratorFirstMultDiv; // indexmin
+        std::vector<std::string>::iterator iteratorFirstMultDiv; // indmin
         auto iteratorFirstMult = std::find(string1.begin(), string1.end(), "*"); // indexm
         auto iteratorFirstDiv = std::find(string1.begin(), string1.end(), "/"); // indexd
         (iteratorFirstMult < iteratorFirstDiv) ? (iteratorFirstMultDiv = iteratorFirstMult) : (iteratorFirstMultDiv = iteratorFirstDiv);
@@ -40,24 +40,24 @@ void praxis(std::vector<std::string> &string1) // str1
         string1.erase(iteratorFirstMultDiv, iteratorFirstMultDiv + 3);
     }
 
-    int countas = count(string1.begin(), string1.end(), "+");
-    countas += count(string1.begin(), string1.end(), "-");
-    std::string addi = "+", subt = "-";
+    int countAddSub = count(string1.begin(), string1.end(), "+"); // countas
+    countAddSub += count(string1.begin(), string1.end(), "-");
+    // std::string addi = "+", subt = "-";
     
-    for (int i = 0; i < countas; i++)
+    for (int i = 0; i < countAddSub; i++)
     {
-        std::vector<std::string>::iterator indmin;
-        auto indexa = std::find(string1.begin(), string1.end(), addi);
-        auto indexs = std::find(string1.begin(), string1.end(), subt);
-        (indexa < indexs) ? (indmin = indexa) : (indmin = indexs);
-        int k = std::distance(string1.begin(), indmin);
-        double x = std::stod(string1[k - 1]);
-        double y = std::stod(string1[k + 1]);
-        double z(0);
-        (string1[k] == "+") ? (z = x + y) : (z = x - y);
-        std::string h = std::to_string(z);
-        string1.emplace(indmin - 1, h);
-        indmin = string1.begin() + k;
-        string1.erase(indmin, indmin + 3);
+        std::vector<std::string>::iterator iteratorFirstAddSub; // indmin
+        auto iteratorFirstAdd = std::find(string1.begin(), string1.end(), "+"); // indexa
+        auto iteratorFirstSub = std::find(string1.begin(), string1.end(), "-"); // indexs
+        (iteratorFirstAdd < iteratorFirstSub) ? (iteratorFirstAddSub = iteratorFirstAdd) : (iteratorFirstAddSub = iteratorFirstSub);
+        int indexFirstAddSub = std::distance(string1.begin(), iteratorFirstAddSub); // k
+        double firstOperand = std::stod(string1[indexFirstAddSub - 1]); // x
+        double secondOperand = std::stod(string1[indexFirstAddSub + 1]); // y
+        double result(0);
+        (string1[indexFirstAddSub] == "+") ? (result = firstOperand + secondOperand) : (result = firstOperand - secondOperand);
+        std::string resultString = std::to_string(result); // h
+        string1.emplace(iteratorFirstAddSub - 1, resultString);
+        iteratorFirstAddSub = string1.begin() + indexFirstAddSub;
+        string1.erase(iteratorFirstAddSub, iteratorFirstAddSub + 3);
     }
 }
