@@ -11,8 +11,7 @@ void praxis(std::vector<std::string> &str1)
         int k = std::distance(str1.begin(), indexp);
         double x = std::stod(str1[k - 1]);
         double y = std::stod(str1[k + 1]);
-        double z(0);
-        z = pow(x, y);
+        double z = pow(x, y);
         std::string h = std::to_string(z);
         str1.emplace(indexp - 1, h);
         indexp = str1.begin() + k;
