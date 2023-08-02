@@ -55,6 +55,7 @@ int main()
         {
             temp.push_back(inputStr[i]);
             i++;
+            
             if (i >= inputStr.size()) 
             {
                 break; 
