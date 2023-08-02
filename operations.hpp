@@ -6,7 +6,8 @@ void praxis(std::vector<std::string> &str1)
     int countp = count(str1.begin(), str1.end(), "^");
     std::string powr = "^";
     
-    for (int i = 0; i < countp; i++) {
+    for (int i = 0; i < countp; i++)
+    {
         auto indexp = std::find(str1.begin(), str1.end(), powr);
         int k = std::distance(str1.begin(), indexp);
         double x = std::stod(str1[k - 1]);
