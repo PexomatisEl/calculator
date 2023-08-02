@@ -15,8 +15,6 @@ int main()
     std::getline(std::cin, inputStr);
     std::cout << inputStr;
 
-    
-    
     int i = 0;
     
     if ( inputStr[0] == '-'  &&  !(inputStr[1] == '(' ) ) 
@@ -53,7 +51,6 @@ int main()
 
     while (i < inputStr.size()) 
     {
-        
         while ( isalpha( inputStr[i] ) ) 
         {
             temp.push_back(inputStr[i]);
@@ -81,6 +78,7 @@ int main()
         {
             temp.push_back( inputStr[i] );
             i++;
+            
             if ( i >= inputStr.size() ) 
             {
                 break; 
@@ -134,20 +132,17 @@ int main()
         
         for (int j = indexRightPar; j >= 0; j--) 
         {
-            
             if (operationVec[j] == "(") 
             {
                 indexLeftPar = j; 
                 break; 
             }
-            
         }
         
         std::vector<std::string> containsParenthesis;
         
         for (int j = indexLeftPar + 1; j < indexRightPar; j++) 
         {
-            
             if ( operationVec[indexLeftPar + 1] == "-" && j == indexLeftPar + 1) 
             {
                 double doubleResult= stod( operationVec[indexLeftPar + 2] ) * (-1);
