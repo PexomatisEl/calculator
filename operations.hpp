@@ -12,9 +12,9 @@ void praxis(std::vector<std::string> &string1) // str1
         int indexFirstPower = std::distance(string1.begin(), iteratorFirstPower); // k
         double base = std::stod(string1[k - 1]); // x
         double power = std::stod(string1[k + 1]); // y
-        double result = pow(base, power); // z
-        std::string resultString = std::to_string(result); // h
-        string1.emplace(indexp - 1, resultString);
+        double doubleResult = pow(base, power); // z
+        std::string strResulttring = std::to_string(doubleResult); // h
+        string1.emplace(indexp - 1, strResulttring);
         iteratorFirstPower = string1.begin() + indexFirstPower;
         string1.erase(iteratorFirstPower, iteratorFirstPower + 3);
     }
@@ -32,10 +32,10 @@ void praxis(std::vector<std::string> &string1) // str1
         int indexFirstMultDiv = std::distance(string1.begin(), iteratorFirstMultDiv); // k
         double firstOperand = std::stod(string1[indexFirstMultDiv - 1]); // x
         double secondOperand = std::stod(string1[indexFirstMultDiv + 1]); // y
-        double result(0); // z
-        (string1[indexFirstMultDiv] == "*") ? (result = firstOperand * secondOperand) : (result = firstOperand / secondOperand);
-        std::string resultString = std::to_string(result); // h
-        string1.emplace(iteratorFirstMultDiv - 1, resultString);
+        double doubleResult(0); // z
+        (string1[indexFirstMultDiv] == "*") ? (doubleResult = firstOperand * secondOperand) : (doubleResult = firstOperand / secondOperand);
+        std::string strResulttring = std::to_string(doubleResult); // h
+        string1.emplace(iteratorFirstMultDiv - 1, strResulttring);
         iteratorFirstMultDiv = string1.begin() + indexFirstMultDiv;
         string1.erase(iteratorFirstMultDiv, iteratorFirstMultDiv + 3);
     }
@@ -53,10 +53,10 @@ void praxis(std::vector<std::string> &string1) // str1
         int indexFirstAddSub = std::distance(string1.begin(), iteratorFirstAddSub); // k
         double firstOperand = std::stod(string1[indexFirstAddSub - 1]); // x
         double secondOperand = std::stod(string1[indexFirstAddSub + 1]); // y
-        double result(0);
-        (string1[indexFirstAddSub] == "+") ? (result = firstOperand + secondOperand) : (result = firstOperand - secondOperand);
-        std::string resultString = std::to_string(result); // h
-        string1.emplace(iteratorFirstAddSub - 1, resultString);
+        double doubleResult(0);
+        (string1[indexFirstAddSub] == "+") ? (doubleResult = firstOperand + secondOperand) : (doubleResult = firstOperand - secondOperand);
+        std::string strResulttring = std::to_string(doubleResult); // h
+        string1.emplace(iteratorFirstAddSub - 1, strResulttring);
         iteratorFirstAddSub = string1.begin() + indexFirstAddSub;
         string1.erase(iteratorFirstAddSub, iteratorFirstAddSub + 3);
     }
