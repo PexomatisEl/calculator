@@ -16,7 +16,7 @@ int main()
     //std::cout << str;
 
     str = "sin(pi)+e^ln(-5)";
-    //KALHSPERA
+    
     int i = 0;
     if (str[0] == '-' && !(str[1] == '(')) { temp.push_back(str[0]); i++; }
     int counterr = 0;
