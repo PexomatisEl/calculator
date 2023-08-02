@@ -127,7 +127,6 @@ int main()
         
     for ( int i = 0; i < counterRightPar; i++ ) 
     {
-        
         auto iteratorFirstRightPar = find( operationVec.begin(), operationVec.end(), ")" );
         int indexLeftPar(0), indexRightPar = distance( operationVec.begin(), iteratorFirstRightPar );
         
@@ -248,6 +247,5 @@ int main()
 
     std::cout << operationVec[0];
     
-
     return 0;
 }
