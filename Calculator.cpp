@@ -22,6 +22,7 @@ int main()
         temp.push_back( inputStr[0] ); 
         i++; 
     }
+    
     int counterRightPar = 0;
     bool check = false;
     
@@ -170,6 +171,7 @@ int main()
         iteratorFirstLeftPar = operationVec.begin() + indexLeftPar + 1;
         iteratorFirstRightPar = operationVec.begin() + indexRightPar + 1;
         operationVec.erase( iteratorFirstLeftPar, iteratorFirstRightPar + 1 );
+
         
         if ( std::all_of( operationVec[indexLeftPar - 1].begin(), operationVec[indexLeftPar - 1].end(), []( char c ) {return isalpha( c ); } ) && indexLeftPar != 0 ) 
         {
