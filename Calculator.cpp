@@ -12,7 +12,7 @@ int main()
     std::vector<std::string> operationVec;
 
     std::cout << "Type in an arithmetic expression to be calculated: \n";
-    std::getline(std::cin, inputStr);
+    std::getline( std::cin, inputStr );
     std::cout << inputStr;
 
     int i = 0;
