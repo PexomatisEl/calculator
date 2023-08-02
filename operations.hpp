@@ -1,22 +1,22 @@
 const double pi = 3.14159265358979323846;
 const double e = 2.71828182845904523536;
 
-void praxis(std::vector<std::string> &str1)
+void praxis(std::vector<std::string> &string1) // str1
 {
-    int countp = count(str1.begin(), str1.end(), "^");
-    std::string powr = "^";
+    int countPower = count(string1.begin(), string1.end(), "^"); // countp
+    // std::string powr = "^";
     
     for (int i = 0; i < countp; i++)
     {
-        auto indexp = std::find(str1.begin(), str1.end(), powr);
-        int k = std::distance(str1.begin(), indexp);
-        double x = std::stod(str1[k - 1]);
-        double y = std::stod(str1[k + 1]);
-        double z = pow(x, y);
-        std::string h = std::to_string(z);
-        str1.emplace(indexp - 1, h);
-        indexp = str1.begin() + k;
-        str1.erase(indexp, indexp + 3);
+        auto iteratorFirstPower = std::find(string1.begin(), string1.end(), "^"); // indexp
+        int indexFirstPower = std::distance(string1.begin(), iteratorFirstPower); // k
+        double base = std::stod(string1[k - 1]); // x
+        double power = std::stod(string1[k + 1]); // y
+        double result = pow(base, power); // z
+        std::string resultString = std::to_string(result); // h
+        string1.emplace(indexp - 1, resultString);
+        iteratorFirstPower = string1.begin() + indexFirstPower;
+        string1.erase(iteratorFirstPower, iteratorFirstPower + 3);
     }
 
     int countmd = count(str1.begin(), str1.end(), "*");
