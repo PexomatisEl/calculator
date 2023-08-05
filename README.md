@@ -13,7 +13,7 @@ After every function a parenthesis must be used.
 Numbers like e and pi are also included.
 
 ## Examples:
-### <u>Example (i)
+### Example (i)<u>
 
 `sin(ln(sin(pi/2))-e^ln(pi))` 
 
