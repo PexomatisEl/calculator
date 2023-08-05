@@ -18,3 +18,8 @@ Numbers like e and pi are also included.
 `sin(ln(sin(pi/2))-e^ln(pi))` 
 
 **Result:**  0
+
+And now the elementary stuff :trollface:
+### <ins>Example (ii)
+
+`
