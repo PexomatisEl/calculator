@@ -31,4 +31,8 @@ And now the elementary stuff
 -(-(1-2)*log(100))
 
 **Result:**  -2
+
+
+
+
 *precision decimal output to fix and change position of arguements at if, line ~99.*
