@@ -1,4 +1,4 @@
-# C++alculator :computer: 
+# <ins>C++alculator :computer: 
 
 calculator in C++
 
