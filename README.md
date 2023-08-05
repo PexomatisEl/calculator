@@ -13,13 +13,14 @@ After every function a parenthesis must be used.
 Numbers like e and pi are also included.
 
 ## Examples:
+Lets start with an easy one :trollface:
 ### <ins>Example (i)
 
 `sin(ln(sin(pi/2))-e^ln(pi))` 
 
 **Result:**  0
 
-And now the elementary stuff :trollface:
+And now the elementary stuff
 ### <ins>Example (ii)
 
 `
