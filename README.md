@@ -2,7 +2,7 @@
 
 calculator in C++
 
-Be kind and insert only executable expressions, without using any spaces.
+Be kind and insert only executable expressions, without using any spaces. For decimal numbers, use `.`.
 Obviously you have to follow every mathematical rule. For example division with `0` is for dummies.
 
 This calculator is capable of computing complicated arithmetic expressions, containing operators like `(`,`)`,`*`,`/`,`+`,`-`,`^` and 
@@ -23,4 +23,12 @@ Lets start with an easy one :trollface:
 And now the elementary stuff
 ### <ins>Example (ii)
 
-`
+`3.5*((2+8)/(3-1))-(5-7-1/2)`
+
+**Result:**  20
+
+### <ins>Example (iii)
+-(-(1-2)*log(100))
+
+**Result:**  -2
+*precision decimal output to fix and change position of arguements at if, line ~99.*
