@@ -12,7 +12,8 @@ After every function a parenthesis must be used.
 
 Numbers like e and pi are also included.
 
-## Example (i)
+## Examples:
+### Example (i)
 
 `sin(ln(sin(pi/2))-e^ln(pi))` 
 
