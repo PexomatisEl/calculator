@@ -1,4 +1,4 @@
-# C++alculator :computer: :shipit:
+# C++alculator :computer: 
 
 calculator in C++
 
@@ -16,4 +16,4 @@ Numbers like e and pi are also included.
 
 `sin(ln(sin(pi/2))-e^ln(pi))` 
 
-**Result**
+**Result:**  0
