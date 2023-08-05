@@ -1,4 +1,4 @@
-# C++alculator :computer: 🔥 🔥
+# C++alculator :computer: :shipit:
 
 calculator in C++
 
