@@ -14,7 +14,7 @@ Numbers like e and pi are also included.
 
 ## Examples:
 Lets start with an easy one :trollface:
-### /color{purple}{<ins>Example (i)}
+### \color{purple}{<ins>Example (i)}
 
 `sin(ln(sin(pi/2))-e^ln(pi))` 
 
