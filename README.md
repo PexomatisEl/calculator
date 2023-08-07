@@ -28,7 +28,7 @@ And now the elementary stuff
 **Result:**  20
 
 ### <ins>Example (iii)
--(-(1-2)*log(100))
+`-(-(1-2)*log(100))`
 
 **Result:**  -2
 
