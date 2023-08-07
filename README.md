@@ -35,4 +35,4 @@ And now the elementary stuff
 
 
 
-*precision decimal output to fix and change position of arguements at if, line ~99.*
+*precision decimal output to fix.*
