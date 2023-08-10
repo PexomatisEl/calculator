@@ -34,5 +34,3 @@ And now the elementary stuff
 
 
 
-
-*precision decimal output to fix <ins>&&</ins> while loops to for loops while creating the vector with the original operation.*
